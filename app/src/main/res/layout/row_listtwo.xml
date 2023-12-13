@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="listtwoRowModel" type="com.vlassapplication.app.modules.menuconsumables.data.model.ListtwoRowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearRowtwo"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal" style="@style/groupStylegray_200cornerRadius"
+        android:layout_marginBottom="@dimen/_10pxv">
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearColumntwo"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.73" android:layout_width="0dp"
+            android:orientation="vertical" style="@style/groupStylegray_400cornerRadius">
+            <TextView android:ellipsize="end" android:id="@+id/txtTwo"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_21pxh"
+                android:layout_marginStart="@dimen/_21pxh"
+                android:layout_marginTop="@dimen/_9pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{listtwoRowModel.txtTwo}"
+                style="@style/txtMontserratromanbold14" tools:text="@string/lbl10"/>
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtOilMotors10WFour"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_27pxv"
+                android:layout_marginEnd="@dimen/_21pxh"
+                android:layout_marginStart="@dimen/_21pxh"
+                android:layout_marginTop="@dimen/_3pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{listtwoRowModel.txtOilMotors10WFour}"
+                style="@style/txtMontserratromanregular9" tools:text="@string/msg_oilmotors_10w4"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="end"
+            android:id="@+id/linearColumnfiftythree"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8pxv"
+            android:layout_marginEnd="@dimen/_27pxh"
+            android:layout_marginStart="@dimen/_51pxh"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:layout_weight="0.27" android:layout_width="0dp" android:orientation="vertical">
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtFiftyThree"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_47pxh"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:text="@{listtwoRowModel.txtFiftyThree}"
+                style="@style/txtMontserratromanregular11" tools:text="@string/lbl_53"/>
+            <TextView android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:id="@+id/txt12304"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_1pxh"
+                android:layout_marginStart="@dimen/_2pxh"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{listtwoRowModel.txt12304}"
+                style="@style/txtMontserratromanregular7" tools:text="@string/msg_12304"/>
+            <TextView android:ellipsize="end" android:gravity="start"
+                android:id="@+id/txt35304"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_1pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@{listtwoRowModel.txt35304}"
+                style="@style/txtMontserratromanmedium14" tools:text="@string/lbl_35_304"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="menuVM" type="com.vlassapplication.app.modules.menu.data.viewmodel.MenuVM"/>
+    </data>
+
+        <FrameLayout android:gravity="start"
+            android:id="@+id/frameBottombar"
+            android:layout_height="wrap_content" android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/_10pxv">
+            <FrameLayout android:id="@+id/frameStackrectanglefive"
+                android:layout_height="@dimen/_74pxv" android:layout_width="@dimen/_340pxh"
+                android:layout_gravity="center">
+                <View
+                    android:background="@drawable/rectangle_bg_gray_800_radius_37"
+                    android:id="@+id/viewRectangleFive"
+                    android:layout_height="@dimen/_74pxv" android:layout_width="@dimen/_340pxh" />
+                <LinearLayout android:id="@+id/linearRowopenendwrench"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_12pxv"
+                    android:layout_marginTop="@dimen/_12pxv"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:gravity="center">
+                    <FrameLayout android:id="@+id/frameSuppliers"
+                        android:layout_height="@dimen/_50pxv"
+                        android:layout_width="@dimen/_50pxh" style="@style/groupStylegray_800cornerRadius"
+                        android:layout_marginRight="@dimen/_30pxh">
+                        <ImageView android:id="@+id/imageOpenEndWrench"
+                            android:layout_gravity="center"
+                            android:layout_height="@dimen/_30pxh"
+                            android:layout_marginHorizontal="@dimen/_10pxh"
+                            android:layout_marginVertical="@dimen/_10pxv"
+                            android:layout_width="@dimen/_30pxh"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_openendwrench"
+                            tools:ignore="ContentDescription" tools:src="@drawable/img_openendwrench"/>
+                    </FrameLayout>
+                    <FrameLayout android:id="@+id/frameMyBambax"
+                        android:layout_height="@dimen/_50pxv"
+                        android:layout_width="@dimen/_50pxh" style="@style/groupStylegray_800cornerRadius"
+                        android:layout_marginRight="@dimen/_30pxh">
+                        <ImageView android:id="@+id/imageDirtBike"
+                            android:layout_gravity="center"
+                            android:layout_height="@dimen/_30pxh"
+                            android:layout_marginHorizontal="@dimen/_10pxh"
+                            android:layout_marginVertical="@dimen/_10pxv"
+                            android:layout_width="@dimen/_30pxh"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_dirtbike"
+                            tools:ignore="ContentDescription" tools:src="@drawable/img_dirtbike"/>
+                    </FrameLayout>
+                    <FrameLayout android:id="@+id/frameMyBambax1"
+                        android:layout_height="@dimen/_50pxv"
+                        android:layout_width="@dimen/_50pxh" style="@style/groupStylegray_800cornerRadius">
+                        <ImageView android:id="@+id/imageMore"
+                            android:layout_gravity="center"
+                            android:layout_height="@dimen/_30pxh"
+                            android:layout_marginHorizontal="@dimen/_10pxh"
+                            android:layout_marginVertical="@dimen/_10pxv"
+                            android:layout_width="@dimen/_30pxh"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_more"
+                            tools:ignore="ContentDescription" tools:src="@drawable/img_more"/>
+                    </FrameLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </FrameLayout>
+
+</layout>

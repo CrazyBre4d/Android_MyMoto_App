@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">MyMoto</string>
+    <string name="loading">Loading…</string>
+    <string name="no_internet_connection">No internet connection!</string>
+<string name="msg">Добавить расходник</string>
+  <string name="lbl_1063_3">1063 см3</string>
+  <string name="lbl4">Имя</string>
+  <string name="lbl5">Модель</string>
+  <string name="lbl2">Сохранить</string>
+  <string name="lbl3">Обновить пробег</string>
+  <string name="lbl_xv1100_1986">XV1100, 1986</string>
+  <string name="lbl_21_500">21 500 км</string>
+  <string name="lbl_yamaha_virago">Yamaha Virago</string>
+  <string name="lbl_300">300 км</string>
+  <string name="lbl_500">За 500 км</string>
+  <string name="msg4">Дополнительная информация</string>
+  <string name="msg3">Продолжительность использования</string>
+  <string name="msg2">Описание расходника</string>
+  <string name="lbl_22030">22030</string>
+  <string name="msg8">Установить автопробег</string>
+  <string name="lbl_53">53%</string>
+  <string name="msg7">Об обновлении пробега</string>
+  <string name="msg6">О замене расходников</string>
+  <string name="msg5">Изменить мотоцикл</string>
+  <string name="msg_12304">Осталось 12304 км</string>
+  <string name="lbl_32">3</string>
+  <string name="lbl8">Расходники</string>
+  <string name="lbl9">Текущий пробег </string>
+  <string name="lbl6">Детали</string>
+  <string name="lbl7">Объём двигателя</string>
+  <string name="lbl10">Колодки</string>
+  <string name="lbl11">Мой Бэмбакс</string>
+  <string name="lbl">Имя расходника</string>
+  <string name="lbl12">см</string>
+  <string name="lbl_35_304">35 304 км</string>
+  <string name="lbl13">Пробег</string>
+  <string name="lbl14">Настройки</string>
+  <string name="lbl15">Выбрать тему</string>
+  <string name="lbl_1063">1063 </string>
+  <string name="lbl16">Уведомления</string>
+  <string name="lbl17">Ежемесячно</string>
+  <string name="msg_oilmotors_10w4">OilMotors, 10W40</string>
+  <string name="lbl18">Автопробег</string>
+  <string name="lbl19">В период</string>
+</resources>
