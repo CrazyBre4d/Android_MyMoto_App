@@ -64,6 +64,9 @@
                     android:id="@+id/viewRectangleThree"
                     android:layout_gravity="start"
                     android:enabled="true"
+                    android:paddingStart="@dimen/_15pxv"
+                    android:paddingEnd="@dimen/_15pxv"
+                    android:textColor="@color/red_800"
                     android:layout_height="@dimen/_40pxv"
                     android:layout_marginTop="@dimen/_2pxv" android:layout_width="@dimen/_340pxh"/>
             </LinearLayout>
@@ -87,6 +90,9 @@
                     android:id="@+id/viewRectangleThreeOne"
                     android:layout_gravity="start"
                     android:enabled="true"
+                    android:paddingStart="@dimen/_15pxv"
+                    android:paddingEnd="@dimen/_15pxv"
+                    android:textColor="@color/red_800"
                     android:layout_height="@dimen/_40pxv"
                     android:layout_marginTop="@dimen/_2pxv" android:layout_width="@dimen/_340pxh"/>
             </LinearLayout>
@@ -109,6 +115,9 @@
                     android:id="@+id/viewRectangleThreeTwo"
                     android:layout_gravity="start"
                     android:enabled="true"
+                    android:paddingStart="@dimen/_15pxv"
+                    android:paddingEnd="@dimen/_15pxv"
+                    android:textColor="@color/red_800"
                     android:layout_height="@dimen/_40pxv"
                     android:layout_marginTop="@dimen/_2pxv" android:layout_width="@dimen/_340pxh"/>
             </LinearLayout>
@@ -132,6 +141,9 @@
                     android:id="@+id/viewRectangleThreeThree"
                     android:layout_gravity="start"
                     android:enabled="true"
+                    android:paddingStart="@dimen/_15pxv"
+                    android:paddingEnd="@dimen/_15pxv"
+                    android:textColor="@color/red_800"
                     android:layout_height="@dimen/_40pxv"
                     android:layout_marginTop="@dimen/_2pxv" android:layout_width="@dimen/_340pxh"/>
             </LinearLayout>
