@@ -10,22 +10,31 @@ import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.vlassapplication.app.R
 import com.vlassapplication.app.appcomponents.base.BaseActivity
+import com.vlassapplication.app.appcomponents.di.MyApp
 import com.vlassapplication.app.databinding.ActivityMenuMainBinding
 import com.vlassapplication.app.modules.changemoto.ui.ChangeMotoActivity
 import com.vlassapplication.app.modules.menuconsumables.ui.MenuConsumablesActivity
 import com.vlassapplication.app.modules.menumain.`data`.viewmodel.MenuMainVM
 import com.vlassapplication.app.modules.menusettings.ui.MenuSettingsActivity
 import com.vlassapplication.app.modules.updatekmage.ui.UpdateKmageActivity
+import com.vlassapplication.app.repositories.KmageDAO
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlin.String
 import kotlin.Unit
 
 class MenuMainActivity : BaseActivity<ActivityMenuMainBinding>(R.layout.activity_menu_main) {
   private val viewModel: MenuMainVM by viewModels<MenuMainVM>()
-
+  lateinit var kmageDAO: KmageDAO
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.menuMainVM = viewModel
+    kmageDAO = MyApp.getInstance().database?.kmageDAO()!!
+    GlobalScope.launch(Dispatchers.IO) {
+      viewModel.setCurrentKmageText(kmageDAO.currentKmage.kmage.toString())
+    }
   }
 
   override fun setUpClicks(): Unit {

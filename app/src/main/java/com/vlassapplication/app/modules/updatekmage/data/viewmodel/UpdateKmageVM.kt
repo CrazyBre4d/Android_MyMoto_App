@@ -19,4 +19,8 @@ class UpdateKmageVM : ViewModel(), KoinComponent {
     val updateKmageModel: MutableLiveData<UpdateKmageModel> = MutableLiveData(UpdateKmageModel())
 
   var navArguments: Bundle? = null
+
+    fun setCurrentKmageText(km:String){
+        updateKmageModel.value?.txtZipcode = km
+    }
 }

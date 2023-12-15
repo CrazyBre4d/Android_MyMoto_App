@@ -10,4 +10,8 @@ class MenuMainVM : ViewModel(), KoinComponent {
   val menuMainModel: MutableLiveData<MenuMainModel> = MutableLiveData(MenuMainModel())
 
   var navArguments: Bundle? = null
+
+  fun setCurrentKmageText(km:String){
+    menuMainModel.value?.txt21500 = km
+  }
 }

@@ -22,5 +22,11 @@ class MenuConsumablesVM : ViewModel(), KoinComponent {
 
   var navArguments: Bundle? = null
 
+    fun setCurrentKmageText(km:String){
+        menuConsumablesModel.value?.currentKmageText = km
+    }
+
+
+
 /*  val listtwoList: MutableLiveData<MutableList<ListtwoRowModel>> = MutableLiveData(mutableListOf())*/
 }

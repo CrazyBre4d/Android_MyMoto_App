@@ -30,6 +30,10 @@ class UpdateKmageActivity : BaseActivity<ActivityUpdateKmageBinding>(R.layout.ac
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.updateKmageVM = viewModel
+    kmageDAO = MyApp.getInstance().database?.kmageDAO()!!
+    GlobalScope.launch(Dispatchers.IO) {
+      viewModel.setCurrentKmageText(kmageDAO.currentKmage.kmage.toString())
+    }
   }
 
   override fun setUpClicks(): Unit {

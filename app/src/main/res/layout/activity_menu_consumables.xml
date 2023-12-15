@@ -71,7 +71,7 @@
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
                                 android:singleLine="true"
-                                android:text="@{menuConsumablesVM.menuConsumablesModel.txt21500}"
+                                android:text="@{menuConsumablesVM.menuConsumablesModel.currentKmageText}"
                                 tools:text="@string/lbl_21_500" />
 
                             <TextView

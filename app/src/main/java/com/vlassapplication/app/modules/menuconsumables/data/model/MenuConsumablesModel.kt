@@ -13,7 +13,7 @@ data class MenuConsumablesModel(
   /**
    * TODO Replace with dynamic value
    */
-  var txt21500: String? = MyApp.getInstance().resources.getString(R.string.lbl_21_500)
+  var currentKmageText: String = "21500"
   ,
   /**
    * TODO Replace with dynamic value

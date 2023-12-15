@@ -53,7 +53,9 @@ class MenuConsumablesActivity :
     kmageDAO = MyApp.getInstance().database?.kmageDAO()!!
 
 
+
     GlobalScope.launch(Dispatchers.IO) {
+      viewModel.setCurrentKmageText(kmageDAO.currentKmage.kmage.toString())
 // Получение всех записей из базы данных
       val consumableList: List<Consumable> = consumableDAO.getAllConsumables()
       // Создайте список данных для адаптера
