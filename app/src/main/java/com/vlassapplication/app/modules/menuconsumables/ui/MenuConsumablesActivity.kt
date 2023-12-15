@@ -13,12 +13,14 @@ import com.vlassapplication.app.appcomponents.base.BaseActivity
 import com.vlassapplication.app.appcomponents.di.MyApp
 import com.vlassapplication.app.databinding.ActivityMenuConsumablesBinding
 import com.vlassapplication.app.entities.Consumable
+import com.vlassapplication.app.entities.Kmage
 import com.vlassapplication.app.modules.addconsumable.ui.AddConsumableActivity
 import com.vlassapplication.app.modules.menuconsumables.data.model.ListtwoRowModel
 import com.vlassapplication.app.modules.menuconsumables.data.viewmodel.MenuConsumablesVM
 import com.vlassapplication.app.modules.menumain.ui.MenuMainActivity
 import com.vlassapplication.app.modules.menusettings.ui.MenuSettingsActivity
 import com.vlassapplication.app.repositories.ConsumableDAO
+import com.vlassapplication.app.repositories.KmageDAO
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -27,7 +29,7 @@ import kotlinx.coroutines.launch
 class MenuConsumablesActivity :
     BaseActivity<ActivityMenuConsumablesBinding>(R.layout.activity_menu_consumables) {
   private val viewModel: MenuConsumablesVM by viewModels<MenuConsumablesVM>()
-
+  lateinit var kmageDAO: KmageDAO
   lateinit var consumableDAO: ConsumableDAO
   val listData: MutableList<ListtwoRowModel> = mutableListOf()
 
@@ -48,15 +50,12 @@ class MenuConsumablesActivity :
     binding.menuConsumablesVM = viewModel
 
     consumableDAO = MyApp.getInstance().database?.consumableDAO()!!
+    kmageDAO = MyApp.getInstance().database?.kmageDAO()!!
 
-
-    val kmage = 35200 //Hey, Vlas, replace it with data from database :p
-    val consumablePrimaryKmage = 33000
 
     GlobalScope.launch(Dispatchers.IO) {
 // Получение всех записей из базы данных
       val consumableList: List<Consumable> = consumableDAO.getAllConsumables()
-
       // Создайте список данных для адаптера
 
 
@@ -66,18 +65,17 @@ class MenuConsumablesActivity :
           name = consumable.name,
           description = consumable.description,
           useTime = consumable.useTime,
-          primaryKmage = consumablePrimaryKmage, //Hey, add to db field primaryKmage, please
-          currentKmage = kmage
+          primaryKmage = consumable.primaryKmage, //Hey, add to db field primaryKmage, please
+          currentKmage = kmageDAO.currentKmage.kmage
         )
         listData.add(listtwoRowModel)
       }
 
       // Обновите данные в адаптере
-      listtwoAdapter.updateData(listData)
-
 
 
     }
+    listtwoAdapter.updateData(listData)
     viewModel.updateList(listData)
   }
   override fun setUpClicks(): Unit {

@@ -18,14 +18,14 @@ import com.vlassapplication.app.repositories.KmageDAO
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.String
 import kotlin.Unit
 
 class UpdateKmageActivity : BaseActivity<ActivityUpdateKmageBinding>(R.layout.activity_update_kmage)
     {
   private val viewModel: UpdateKmageVM by viewModels<UpdateKmageVM>()
-
-      lateinit var kmageDAO: KmageDAO
+  lateinit var kmageDAO: KmageDAO
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
@@ -37,18 +37,21 @@ class UpdateKmageActivity : BaseActivity<ActivityUpdateKmageBinding>(R.layout.ac
       val destIntent = MenuMainActivity.getIntent(this, null)
       startActivity(destIntent)
 
-/*      val editTextName = findViewById<EditText>(R.id.txtZipcode)
-      kmageDAO = MyApp.getInstance().database?.kmageDAO()!!*/
+      val editTextName = findViewById<EditText>(R.id.txtZipcode)
+
+      kmageDAO = MyApp.getInstance().database?.kmageDAO()!!
+
+      GlobalScope.launch(Dispatchers.IO) {
+        val textkmage = editTextName.text.toString()
+        kmageDAO.addKmage( Kmage(textkmage.toInt()))
+        val updatedKmage = kmageDAO.currentKmage
+        withContext(Dispatchers.Main) {
+          viewModel.updateKmage(updatedKmage)
+        }
+
+      }
 
 
-      /*GlobalScope.launch(Dispatchers.IO) {
-        val kmage = editTextName.text.toString()
-        kmageDAO.updateKmage(Kmage(kmage))
-
-        val updatedList = kmageDAO.updateKmage(kmage)
-        // Обновляем список в модели представления
-        viewModel.updateList(updatedList)
-      }*/
     }
     binding.imageClose.setOnClickListener {
       val destIntent = MenuMainActivity.getIntent(this, null)

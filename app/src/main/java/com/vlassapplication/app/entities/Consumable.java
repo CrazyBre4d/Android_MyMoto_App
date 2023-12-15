@@ -7,20 +7,30 @@ import androidx.room.PrimaryKey;
 public class Consumable {
     @PrimaryKey(autoGenerate = true)
     private Long id;
-
     private String name;
     private String description;
     private Integer useTime;
     private String moreDescription;
 
+    private Integer primaryKmage;
+
     public Consumable() {
     }
 
-    public Consumable(String name, String description, Integer useTime, String moreDescription) {
+    public Consumable(String name, String description, Integer useTime, String moreDescription, Integer primaryKmage) {
         this.name = name;
         this.description = description;
         this.useTime = useTime;
         this.moreDescription = moreDescription;
+        this.primaryKmage = primaryKmage;
+    }
+
+    public Integer getPrimaryKmage() {
+        return primaryKmage;
+    }
+
+    public void setPrimaryKmage(Integer primaryKmage) {
+        this.primaryKmage = primaryKmage;
     }
 
     public Long getId() {

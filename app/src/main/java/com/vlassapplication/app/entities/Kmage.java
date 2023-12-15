@@ -8,20 +8,30 @@ import androidx.room.PrimaryKey;
 public class Kmage {
     @PrimaryKey
     @NonNull
-    private String kmage;
+    private Integer id;
+    private Integer kmage;
 
     public Kmage() {
     }
 
-    public Kmage(@NonNull String  kmage) {
+    public Kmage( Integer kmage) {
         this.kmage = kmage;
     }
 
-    public String  getKmage() {
+    @NonNull
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(@NonNull Integer id) {
+        this.id = id;
+    }
+
+    public Integer getKmage() {
         return kmage;
     }
 
-    public void setKmage(String  kmage) {
+    public void setKmage(Integer kmage) {
         this.kmage = kmage;
     }
 }

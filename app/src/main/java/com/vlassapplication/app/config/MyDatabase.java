@@ -8,8 +8,8 @@ import com.vlassapplication.app.entities.Kmage;
 import com.vlassapplication.app.repositories.ConsumableDAO;
 import com.vlassapplication.app.repositories.KmageDAO;
 
-@Database(entities = {Consumable.class},  version = 1)
+@Database(entities = {Consumable.class, Kmage.class},  version = 2)
 public abstract class MyDatabase extends RoomDatabase {
     public abstract ConsumableDAO consumableDAO();
-/*    public abstract KmageDAO kmageDAO();*/
+    public abstract KmageDAO kmageDAO();
 }
