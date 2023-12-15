@@ -6,9 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.util.Log
 import android.view.View
-import android.widget.EditText
 import androidx.activity.viewModels
 import com.vlassapplication.app.R
 import com.vlassapplication.app.appcomponents.base.BaseActivity
@@ -29,11 +27,13 @@ import kotlinx.coroutines.launch
 class MenuConsumablesActivity :
     BaseActivity<ActivityMenuConsumablesBinding>(R.layout.activity_menu_consumables) {
   private val viewModel: MenuConsumablesVM by viewModels<MenuConsumablesVM>()
+
   lateinit var consumableDAO: ConsumableDAO
+  val listData: MutableList<ListtwoRowModel> = mutableListOf()
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
-    val listtwoAdapter = ListtwoAdapter(viewModel.listtwoList.value ?: mutableListOf())
+    val listtwoAdapter = ListtwoAdapter(this, viewModel.listtwoList.value ?: mutableListOf())
     binding.recyclerListtwo.adapter = listtwoAdapter
     listtwoAdapter.setOnItemClickListener(
       object : ListtwoAdapter.OnItemClickListener {
@@ -48,21 +48,26 @@ class MenuConsumablesActivity :
     binding.menuConsumablesVM = viewModel
 
     consumableDAO = MyApp.getInstance().database?.consumableDAO()!!
+
+
+    val kmage = 35200 //Hey, Vlas, replace it with data from database :p
+    val consumablePrimaryKmage = 33000
+
     GlobalScope.launch(Dispatchers.IO) {
 // Получение всех записей из базы данных
       val consumableList: List<Consumable> = consumableDAO.getAllConsumables()
 
       // Создайте список данных для адаптера
-      val listData: MutableList<ListtwoRowModel> = mutableListOf()
+
 
       // Заполните listData значениями из базы данных
       for (consumable in consumableList) {
         val listtwoRowModel = ListtwoRowModel(
-          txtTwo = consumable.name,
-          txtOilMotors10WFour = consumable.description,
-          txtFiftyThree = "53%" ,
-          txt12304 = "Осталось 165 км",
-          txt35304 = consumable.useTime.toString() + " км"// Пример, вы можете использовать другие поля из consumable
+          name = consumable.name,
+          description = consumable.description,
+          useTime = consumable.useTime,
+          primaryKmage = consumablePrimaryKmage, //Hey, add to db field primaryKmage, please
+          currentKmage = kmage
         )
         listData.add(listtwoRowModel)
       }
@@ -71,8 +76,9 @@ class MenuConsumablesActivity :
       listtwoAdapter.updateData(listData)
 
 
-    }
 
+    }
+    viewModel.updateList(listData)
   }
   override fun setUpClicks(): Unit {
     binding.btnBtnAdd.setOnClickListener {

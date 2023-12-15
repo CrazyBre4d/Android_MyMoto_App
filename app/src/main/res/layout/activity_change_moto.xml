@@ -11,7 +11,7 @@
         <LinearLayout
             android:id="@+id/linearColumnclose"
             android:layout_width="match_parent"
-            android:layout_height="812dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10pxh"
             android:layout_marginTop="@dimen/_21pxv"
@@ -39,8 +39,10 @@
                         style="@style/txtMontserratextrabold24"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="top"
                         android:layout_weight="0.92"
                         android:ellipsize="end"
+                        android:gravity="center_vertical"
                         android:singleLine="true"
                         android:text="@{changeMotoVM.changeMotoModel.txtTextOne}"
                         tools:text="@string/msg5" />
@@ -49,6 +51,7 @@
                         android:id="@+id/imageClose"
                         android:layout_width="@dimen/_24pxh"
                         android:layout_height="@dimen/_24pxh"
+                        android:layout_gravity="bottom"
                         android:layout_marginStart="@dimen/_23pxh"
                         android:layout_marginTop="@dimen/_1pxv"
                         android:layout_marginBottom="@dimen/_4pxv"
@@ -64,7 +67,7 @@
                 style="@style/groupStylecornerRadius_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_58pxv"
+                android:layout_marginTop="@dimen/_30pxv"
                 android:orientation="vertical">
 
                 <TextView

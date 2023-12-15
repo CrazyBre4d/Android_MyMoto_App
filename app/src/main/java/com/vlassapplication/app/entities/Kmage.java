@@ -1,23 +1,27 @@
 package com.vlassapplication.app.entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "kmage")
 public class Kmage {
-    private Integer kmage;
+    @PrimaryKey
+    @NonNull
+    private String kmage;
 
     public Kmage() {
     }
 
-    public Kmage(Integer kmage) {
+    public Kmage(@NonNull String  kmage) {
         this.kmage = kmage;
     }
 
-    public Integer getKmage() {
+    public String  getKmage() {
         return kmage;
     }
 
-    public void setKmage(Integer kmage) {
+    public void setKmage(String  kmage) {
         this.kmage = kmage;
     }
 }

@@ -1,6 +1,7 @@
 package com.vlassapplication.app.modules.menuconsumables.`data`.viewmodel
 
 import android.os.Bundle
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vlassapplication.app.modules.menuconsumables.`data`.model.ListtwoRowModel
@@ -9,10 +10,17 @@ import kotlin.collections.MutableList
 import org.koin.core.KoinComponent
 
 class MenuConsumablesVM : ViewModel(), KoinComponent {
-  val menuConsumablesModel: MutableLiveData<MenuConsumablesModel> =
+    private val _listtwoList = MutableLiveData<MutableList<ListtwoRowModel>>()
+    val listtwoList: LiveData<MutableList<ListtwoRowModel>> get() = _listtwoList
+
+    fun updateList(newList: MutableList<ListtwoRowModel>) {
+        _listtwoList.value = newList
+    }
+
+    val menuConsumablesModel: MutableLiveData<MenuConsumablesModel> =
       MutableLiveData(MenuConsumablesModel())
 
   var navArguments: Bundle? = null
 
-  val listtwoList: MutableLiveData<MutableList<ListtwoRowModel>> = MutableLiveData(mutableListOf())
+/*  val listtwoList: MutableLiveData<MutableList<ListtwoRowModel>> = MutableLiveData(mutableListOf())*/
 }

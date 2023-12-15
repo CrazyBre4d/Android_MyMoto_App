@@ -43,6 +43,7 @@ class AddConsumableActivity :
     binding.btn.setOnClickListener {
       val destIntent = MenuConsumablesActivity.getIntent(this, null)
       startActivity(destIntent)
+
       val editTextName = findViewById<EditText>(R.id.viewRectangleThree)
       val editTextDesc = findViewById<EditText>(R.id.viewRectangleThreeOne)
       val editTextTimeUsage = findViewById<EditText>(R.id.viewRectangleThreeTwo)
@@ -58,11 +59,10 @@ class AddConsumableActivity :
 
       consumableDAO.addConsumable(Consumable(name, description,timeUsage,moreDescription))
       Log.d("Database", "Consumable added to the database: $name");
-        val updatedList = consumableDAO.allConsumables
-        // Обновляем список в модели представления
-        viewModel.updateList(updatedList)
       }
-
+      val updatedList = consumableDAO.allConsumables
+      // Обновляем список в модели представления
+      viewModel.updateList(updatedList)
     }
   }
 

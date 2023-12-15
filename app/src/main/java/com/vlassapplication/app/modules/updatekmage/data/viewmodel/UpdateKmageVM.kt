@@ -7,7 +7,11 @@ import com.vlassapplication.app.modules.updatekmage.`data`.model.UpdateKmageMode
 import org.koin.core.KoinComponent
 
 class UpdateKmageVM : ViewModel(), KoinComponent {
-  val updateKmageModel: MutableLiveData<UpdateKmageModel> = MutableLiveData(UpdateKmageModel())
+    /*fun updateList(updatedList: Unit) {
+        _consumablesList.value = updatedList
+    }*/
+
+    val updateKmageModel: MutableLiveData<UpdateKmageModel> = MutableLiveData(UpdateKmageModel())
 
   var navArguments: Bundle? = null
 }

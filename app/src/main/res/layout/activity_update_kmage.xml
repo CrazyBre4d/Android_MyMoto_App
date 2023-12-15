@@ -39,7 +39,7 @@
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
+        <EditText
             android:id="@+id/txtZipcode"
             style="@style/txtMontserratregular48"
             android:layout_width="match_parent"
