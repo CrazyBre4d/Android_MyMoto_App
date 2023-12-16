@@ -55,27 +55,20 @@ class MenuConsumablesActivity :
 
 
     GlobalScope.launch(Dispatchers.IO) {
-      viewModel.setCurrentKmageText(kmageDAO.currentKmage.kmage.toString())
-// Получение всех записей из базы данных
+      viewModel.setCurrentKmageText(kmageDAO.currentKmage.kmage.toString() + " км")
+
       val consumableList: List<Consumable> = consumableDAO.getAllConsumables()
-      // Создайте список данных для адаптера
 
-
-      // Заполните listData значениями из базы данных
       for (consumable in consumableList) {
         val listtwoRowModel = ListtwoRowModel(
           name = consumable.name,
           description = consumable.description,
           useTime = consumable.useTime,
-          primaryKmage = consumable.primaryKmage, //Hey, add to db field primaryKmage, please
+          primaryKmage = consumable.primaryKmage,
           currentKmage = kmageDAO.currentKmage.kmage
         )
         listData.add(listtwoRowModel)
       }
-
-      // Обновите данные в адаптере
-
-
     }
     listtwoAdapter.updateData(listData)
     viewModel.updateList(listData)

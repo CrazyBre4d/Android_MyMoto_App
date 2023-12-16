@@ -12,6 +12,7 @@ import com.vlassapplication.app.R
 import com.vlassapplication.app.appcomponents.base.BaseActivity
 import com.vlassapplication.app.appcomponents.di.MyApp
 import com.vlassapplication.app.databinding.ActivityMenuMainBinding
+import com.vlassapplication.app.entities.Kmage
 import com.vlassapplication.app.modules.changemoto.ui.ChangeMotoActivity
 import com.vlassapplication.app.modules.menuconsumables.ui.MenuConsumablesActivity
 import com.vlassapplication.app.modules.menumain.`data`.viewmodel.MenuMainVM
@@ -32,8 +33,10 @@ class MenuMainActivity : BaseActivity<ActivityMenuMainBinding>(R.layout.activity
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.menuMainVM = viewModel
     kmageDAO = MyApp.getInstance().database?.kmageDAO()!!
+
     GlobalScope.launch(Dispatchers.IO) {
-      viewModel.setCurrentKmageText(kmageDAO.currentKmage.kmage.toString())
+      kmageDAO.addKmage(Kmage(10000))
+      viewModel.setCurrentKmageText(kmageDAO.currentKmage.kmage.toString() + " км")
     }
   }
 
